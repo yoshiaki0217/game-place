@@ -1,5 +1,4 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     mode: 'development',
     entry: [
@@ -23,16 +22,24 @@ module.exports = {
             }
           ]
         },
+        // buildした際にcssでエラーが発生していたためstyle-loaderを追加
         {
-        test: /\.css/,
-        use: [
-          "style-loader",
-          {
-            loader: "css-loader",
-            options: { url: false }
-          }
-        ]
-      }
+          test: /\.css/,
+          use: [
+            "style-loader",
+            {
+              loader: "css-loader",
+              options: { url: false }
+            }
+          ]
+        },
+        { 
+          test: /\.(png|jpg|gif)$/,
+          loader: 'file-loader',
+          options: {
+            name: '[path][name].[ext]',//
+          },
+        }
       ]
     },
     resolve: {

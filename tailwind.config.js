@@ -129,6 +129,11 @@ module.exports = {
         '9.5/10': '95%',
         '10/10': '100%',
       },
+      textColor: {
+        'white': '#fff',
+        'yellow': '#F2F537',
+        'pink': '#FFB6C1',
+      }
     },
   },
   variants: {
